@@ -4,6 +4,7 @@ import Stats from '@/components/home/Stats';
 import Comparator from '@/components/home/Comparator';
 import PackCalculator from '@/components/home/PackCalculator';
 import FAQ from '@/components/home/FAQ';
+import RTCTimeline from '@/components/home/RTCTimeline';
 import { ArrowRight, Phone, Wifi, Smartphone, Cloud, Shield, HeadphonesIcon } from 'lucide-react';
 import Link from 'next/link';
 
@@ -91,6 +92,7 @@ export default function HomePage() {
 
       <EligibilityWidget />
       <Stats />
+      <RTCTimeline />
       <Comparator />
       <PackCalculator />
 
@@ -158,9 +160,9 @@ export default function HomePage() {
               Demander un devis gratuit
               <ArrowRight className="w-5 h-5" />
             </Link>
-            <a href="tel:0189293421" className="btn-secondary text-lg">
+            <a href="tel:0188812227" className="btn-secondary text-lg">
               <Phone className="w-5 h-5" />
-              01 89 29 34 21
+              01 88 81 22 27
             </a>
           </div>
         </div>

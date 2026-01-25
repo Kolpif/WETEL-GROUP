@@ -94,8 +94,35 @@ export default function ContactForm() {
 
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    // Préparer le mailto avec toutes les infos
+    const subject = encodeURIComponent(`Demande de devis - ${formData.companyName}`);
+    
+    const body = encodeURIComponent(`
+NOUVELLE DEMANDE DE DEVIS
+
+=== INFORMATIONS ENTREPRISE ===
+Entreprise: ${formData.companyName}
+Contact: ${formData.contactName}
+Email: ${formData.email}
+Téléphone: ${formData.phone}
+Taille: ${formData.companySize}
+
+=== BESOIN ===
+Situation: ${situations.find(s => s.value === formData.situation)?.label}
+Services demandés: ${formData.needs.map(n => needsList.find(nl => nl.value === n)?.label).join(', ')}
+
+=== MESSAGE ===
+${formData.message || 'Aucun message supplémentaire'}
+
+---
+Envoyé depuis le formulaire de contact WETEL GROUP
+    `.trim());
+
+    // Ouvrir le client mail
+    window.location.href = `mailto:contact@wetelgroup.com?subject=${subject}&body=${body}`;
+
+    // Attendre un peu puis afficher le message de confirmation
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     setIsSubmitting(false);
     setIsSubmitted(true);

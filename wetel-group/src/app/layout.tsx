@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import CookieBanner from '@/components/CookieBanner';
+import Chatbot from '@/components/Chatbot';
 
 export const metadata: Metadata = {
   title: { default: 'WETEL GROUP | Intégrateur Télécom Expert B2B', template: '%s | WETEL GROUP' },
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <Footer />
         <WhatsAppButton />
+        <Chatbot />
         <CookieBanner />
       </body>
     </html>

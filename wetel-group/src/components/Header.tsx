@@ -49,9 +49,9 @@ export default function Header() {
         <div className="container-wide">
           <div className="flex items-center justify-between py-2 text-sm">
             <div className="flex items-center gap-6">
-              <a href="tel:0189293421" className="flex items-center gap-2 text-wetel-gray-400 hover:text-wetel-orange transition-colors">
+              <a href="tel:0188812227" className="flex items-center gap-2 text-wetel-gray-400 hover:text-wetel-orange transition-colors">
                 <Phone className="w-4 h-4" />
-                <span>01 89 29 34 21</span>
+                <span>01 88 81 22 27</span>
               </a>
               <a href="mailto:contact@wetelgroup.com" className="flex items-center gap-2 text-wetel-gray-400 hover:text-wetel-orange transition-colors">
                 <Mail className="w-4 h-4" />
@@ -273,11 +273,11 @@ export default function Header() {
             {/* Mobile Menu Footer */}
             <div className="p-6 border-t border-wetel-gray-800 space-y-4">
               <a
-                href="tel:0189293421"
+                href="tel:0188812227"
                 className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-wetel-gray-800 text-white font-medium rounded-xl hover:bg-wetel-gray-700 transition-colors"
               >
                 <Phone className="w-4 h-4" />
-                01 89 29 34 21
+                01 88 81 22 27
               </a>
               <Link
                 href="/contact"
