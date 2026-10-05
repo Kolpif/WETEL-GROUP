@@ -10,9 +10,17 @@ const config: Config = {
     extend: {
       colors: {
         wetel: {
-          orange: '#FF6B35',
-          'orange-light': '#FF8B5E',
-          'orange-dark': '#E55A25',
+          canvas: '#F8FAFC',
+          surface: '#FFFFFF',
+          'surface-soft': '#F1F5F9',
+          ink: '#13243B',
+          'ink-soft': '#334155',
+          muted: '#526174',
+          line: '#E2E8F0',
+          'line-strong': '#CBD5E1',
+          orange: '#C2410C',
+          'orange-light': '#B83D0A',
+          'orange-dark': '#9A3412',
           blue: '#00A8E8',
           'blue-light': '#007EA7',
           'blue-dark': '#003459',
@@ -45,7 +53,7 @@ const config: Config = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'mesh-gradient': 'linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 50%, #0A0A0A 100%)',
+        'mesh-gradient': 'linear-gradient(135deg, #FFFFFF 0%, #FFF7ED 50%, #F8FAFC 100%)',
         'hero-pattern': 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 107, 53, 0.15), transparent)',
       },
       animation: {

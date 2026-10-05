@@ -93,37 +93,37 @@ const articles = [
 export default function BlogPage() {
   return (
     <>
-      <section className="pt-32 pb-16 bg-wetel-black relative overflow-hidden">
+      <section className="pt-32 pb-16 bg-wetel-canvas relative overflow-hidden">
         <div className="absolute inset-0 hero-gradient" />
         <div className="container-wide relative text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-wetel-orange/10 border border-wetel-orange/20 rounded-full mb-6">
             <BookOpen className="w-4 h-4 text-wetel-orange" />
             <span className="text-sm font-medium text-wetel-orange">Ressources</span>
           </div>
-          <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6">Blog & <span className="text-gradient-orange">Actualités</span></h1>
-          <p className="text-xl text-wetel-gray-400">Guides, conseils et actualités pour accompagner votre transition télécom.</p>
+          <h1 className="text-5xl lg:text-6xl font-bold text-wetel-ink mb-6">Blog & <span className="text-gradient-orange">Actualités</span></h1>
+          <p className="text-xl text-wetel-muted">Guides, conseils et actualités pour accompagner votre transition télécom.</p>
         </div>
       </section>
 
-      <section className="section-padding bg-wetel-gray-900">
+      <section className="section-padding bg-wetel-surface">
         <div className="container-wide">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {articles.map((article) => (
               <Link key={article.slug} href={`/blog/${article.slug}`} className="card group overflow-hidden">
-                <div className="h-48 bg-gradient-to-br from-wetel-orange/20 to-wetel-gray-800 flex items-center justify-center">
+                <div className="h-48 bg-gradient-to-br from-wetel-orange/20 to-wetel-surface-soft flex items-center justify-center">
                   <BookOpen className="w-16 h-16 text-wetel-orange/50" />
                 </div>
                 <div className="p-6">
                   <div className="flex items-center gap-4 mb-4">
                     <span className="badge">{article.category}</span>
-                    <span className="flex items-center gap-1 text-sm text-wetel-gray-500">
+                    <span className="flex items-center gap-1 text-sm text-wetel-muted">
                       <Clock className="w-4 h-4" />{article.readTime}
                     </span>
                   </div>
-                  <h2 className="text-xl font-bold text-white mb-3 group-hover:text-wetel-orange transition-colors">{article.title}</h2>
-                  <p className="text-wetel-gray-400 mb-4 line-clamp-2">{article.excerpt}</p>
+                  <h2 className="text-xl font-bold text-wetel-ink mb-3 group-hover:text-wetel-orange transition-colors">{article.title}</h2>
+                  <p className="text-wetel-muted mb-4 line-clamp-2">{article.excerpt}</p>
                   <div className="flex items-center justify-between">
-                    <span className="flex items-center gap-2 text-sm text-wetel-gray-500">
+                    <span className="flex items-center gap-2 text-sm text-wetel-muted">
                       <Calendar className="w-4 h-4" />
                       {new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
                     </span>

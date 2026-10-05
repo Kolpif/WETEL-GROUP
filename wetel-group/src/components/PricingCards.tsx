@@ -68,7 +68,7 @@ export default function PricingCards() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   return (
-    <section id="tarifs" className="section-padding bg-wetel-black relative overflow-hidden">
+    <section id="tarifs" className="section-padding bg-wetel-canvas relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 network-pattern opacity-20" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-wetel-orange/5 rounded-full blur-[200px]" />
@@ -80,11 +80,11 @@ export default function PricingCards() {
             <Star className="w-4 h-4 text-wetel-orange" />
             <span className="text-sm font-medium text-wetel-orange">Nos offres</span>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-wetel-ink mb-4">
             Des tarifs{' '}
             <span className="text-gradient-orange">transparents</span>
           </h2>
-          <p className="text-xl text-wetel-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-wetel-muted max-w-2xl mx-auto">
             Choisissez le pack adapté à votre entreprise. Tous nos tarifs sont sans engagement.
           </p>
         </div>
@@ -126,20 +126,20 @@ export default function PricingCards() {
               >
                 {/* Header */}
                 <div className="mb-8">
-                  <h3 className="text-2xl font-bold text-white mb-2">{pack.name}</h3>
-                  <p className="text-wetel-gray-500 text-sm">{pack.description}</p>
+                  <h3 className="text-2xl font-bold text-wetel-ink mb-2">{pack.name}</h3>
+                  <p className="text-wetel-muted text-sm">{pack.description}</p>
                 </div>
 
                 {/* Price */}
                 <div className="mb-8">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-sm text-wetel-gray-500">À partir de</span>
+                    <span className="text-sm text-wetel-muted">À partir de</span>
                   </div>
                   <div className="flex items-baseline gap-1">
-                    <span className="text-5xl font-bold text-white">{pack.price}€</span>
-                    <span className="text-wetel-gray-500">HT/mois</span>
+                    <span className="text-5xl font-bold text-wetel-ink">{pack.price}€</span>
+                    <span className="text-wetel-muted">HT/mois</span>
                   </div>
-                  <p className="text-sm text-wetel-gray-500 mt-2">
+                  <p className="text-sm text-wetel-muted mt-2">
                     Installation : à partir de {pack.installation}€ HT
                   </p>
                 </div>
@@ -150,14 +150,14 @@ export default function PricingCards() {
                     <div
                       key={index}
                       className={`flex items-center gap-3 ${
-                        feature.included ? 'text-wetel-gray-300' : 'text-wetel-gray-600'
+                        feature.included ? 'text-wetel-ink-soft' : 'text-wetel-muted'
                       }`}
                     >
                       <div
                         className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${
                           feature.included
-                            ? 'bg-green-500/20 text-green-400'
-                            : 'bg-wetel-gray-800 text-wetel-gray-600'
+                            ? 'bg-green-500/20 text-green-700'
+                            : 'bg-wetel-surface-soft text-wetel-muted'
                         }`}
                       >
                         <Check className="w-3 h-3" />
@@ -179,7 +179,7 @@ export default function PricingCards() {
                     <ArrowRight className="w-5 h-5" />
                   </Link>
                   <a
-                    href="tel:0189293421"
+                    href="tel:0188812227"
                     className="btn-ghost w-full justify-center text-sm"
                   >
                     <Phone className="w-4 h-4" />
@@ -193,10 +193,10 @@ export default function PricingCards() {
 
         {/* Legal Mentions */}
         <div className="mt-12 max-w-3xl mx-auto">
-          <div className="p-6 bg-wetel-gray-900/50 rounded-xl border border-wetel-gray-800">
-            <p className="text-xs text-wetel-gray-500 text-center leading-relaxed">
-              Tous les tarifs sont indiqués à titre indicatif. Les offres sont soumises à étude technique, 
-              éligibilité réseau et validation du dossier. Internet fourni en fibre ou ADSL selon éligibilité. 
+          <div className="p-6 bg-wetel-surface/50 rounded-xl border border-wetel-line">
+            <p className="text-xs text-wetel-muted text-center leading-relaxed">
+              Tous les tarifs sont indiqués à titre indicatif. Les offres sont soumises à étude technique,
+              éligibilité réseau et validation du dossier. Internet fourni en fibre ou ADSL selon éligibilité.
               Les prix peuvent varier selon la zone géographique, le matériel nécessaire et la complexité de l&apos;installation.
             </p>
           </div>
@@ -205,32 +205,32 @@ export default function PricingCards() {
         {/* Features Icons */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="text-center">
-            <div className="w-14 h-14 bg-wetel-gray-800 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <div className="w-14 h-14 bg-wetel-surface-soft rounded-xl flex items-center justify-center mx-auto mb-4">
               <Phone className="w-7 h-7 text-wetel-orange" />
             </div>
-            <h4 className="text-white font-semibold mb-1">Téléphonie IP</h4>
-            <p className="text-sm text-wetel-gray-500">Qualité HD garantie</p>
+            <h4 className="text-wetel-ink font-semibold mb-1">Téléphonie IP</h4>
+            <p className="text-sm text-wetel-muted">Qualité HD garantie</p>
           </div>
           <div className="text-center">
-            <div className="w-14 h-14 bg-wetel-gray-800 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <div className="w-14 h-14 bg-wetel-surface-soft rounded-xl flex items-center justify-center mx-auto mb-4">
               <Smartphone className="w-7 h-7 text-wetel-orange" />
             </div>
-            <h4 className="text-white font-semibold mb-1">Mobile Pro</h4>
-            <p className="text-sm text-wetel-gray-500">Forfaits illimités</p>
+            <h4 className="text-wetel-ink font-semibold mb-1">Mobile Pro</h4>
+            <p className="text-sm text-wetel-muted">Forfaits illimités</p>
           </div>
           <div className="text-center">
-            <div className="w-14 h-14 bg-wetel-gray-800 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <div className="w-14 h-14 bg-wetel-surface-soft rounded-xl flex items-center justify-center mx-auto mb-4">
               <Wifi className="w-7 h-7 text-wetel-orange" />
             </div>
-            <h4 className="text-white font-semibold mb-1">Internet Pro</h4>
-            <p className="text-sm text-wetel-gray-500">Fibre ou ADSL</p>
+            <h4 className="text-wetel-ink font-semibold mb-1">Internet Pro</h4>
+            <p className="text-sm text-wetel-muted">Fibre ou ADSL</p>
           </div>
           <div className="text-center">
-            <div className="w-14 h-14 bg-wetel-gray-800 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <div className="w-14 h-14 bg-wetel-surface-soft rounded-xl flex items-center justify-center mx-auto mb-4">
               <Headphones className="w-7 h-7 text-wetel-orange" />
             </div>
-            <h4 className="text-white font-semibold mb-1">Support</h4>
-            <p className="text-sm text-wetel-gray-500">Assistance dédiée</p>
+            <h4 className="text-wetel-ink font-semibold mb-1">Support</h4>
+            <p className="text-sm text-wetel-muted">Assistance dédiée</p>
           </div>
         </div>
       </div>

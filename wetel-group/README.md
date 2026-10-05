@@ -65,18 +65,18 @@ src/
 - **Contact**: Formulaire multi-étapes avec qualification des leads
 
 ### Composants interactifs
-- Widget d'éligibilité fibre (mock API)
+- Demande d’étude d’éligibilité fibre avec adresse transmise au formulaire
 - Calculateur de pack personnalisé
 - Comparateur avant/après WETEL
 - FAQ accordéon
 - Formulaire de contact multi-étapes
 
 ### Design
-- Palette: Orange (#FF6B35) + Noir/Gris
+- Palette: Orange terre cuite (#C2410C), blanc et bleu nuit
 - Typographie: Outfit (display) + Plus Jakarta Sans (body)
 - Animations subtiles sur scroll et hover
 - Responsive mobile-first
-- Dark mode uniquement (premium B2B)
+- Thème clair sur toutes les pages, contrastes lisibles et animations réduites selon les préférences système
 
 ### Légal & RGPD
 - Bandeau cookies fonctionnel avec stockage préférences
@@ -100,7 +100,7 @@ NEXT_PUBLIC_API_URL=https://api.wetelgroup.com
 
 Les informations de l'entreprise sont centralisées :
 - Logo/branding: `src/components/Header.tsx` et `Footer.tsx`
-- Contact: `contact@wetelgroup.com`, `01 89 29 34 21`
+- Contact: `contact@wetelgroup.com`, `01 88 81 22 27`
 - Adresse: 25 rue Tronchet, 75008 Paris
 - SIREN: 979 507 639
 

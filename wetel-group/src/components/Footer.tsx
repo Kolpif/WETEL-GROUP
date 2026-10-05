@@ -28,7 +28,7 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-wetel-gray-900 border-t border-wetel-gray-800">
+    <footer className="bg-wetel-surface border-t border-wetel-line">
       {/* Main Footer */}
       <div className="container-wide section-padding">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-8">
@@ -51,32 +51,32 @@ export default function Footer() {
               <div>
                 <span className="text-xl font-bold tracking-tight">
                   <span className="text-wetel-orange">WETEL</span>
-                  <span className="text-white"> GROUP</span>
+                  <span className="text-wetel-ink"> GROUP</span>
                 </span>
               </div>
             </Link>
-            
-            <p className="text-wetel-gray-400 mb-6 leading-relaxed">
+
+            <p className="text-wetel-muted mb-6 leading-relaxed">
               Intégrateur télécom expert B2B. Nous accompagnons les entreprises dans leur transition vers la téléphonie IP et la fibre professionnelle.
             </p>
 
             {/* Contact Info */}
             <div className="space-y-3">
               <a
-                href="tel:0189293421"
-                className="flex items-center gap-3 text-wetel-gray-400 hover:text-wetel-orange transition-colors"
+                href="tel:0188812227"
+                className="flex items-center gap-3 text-wetel-muted hover:text-wetel-orange transition-colors"
               >
                 <Phone className="w-5 h-5" />
-                <span>01 89 29 34 21</span>
+                <span>01 88 81 22 27</span>
               </a>
               <a
                 href="mailto:contact@wetelgroup.com"
-                className="flex items-center gap-3 text-wetel-gray-400 hover:text-wetel-orange transition-colors"
+                className="flex items-center gap-3 text-wetel-muted hover:text-wetel-orange transition-colors"
               >
                 <Mail className="w-5 h-5" />
                 <span>contact@wetelgroup.com</span>
               </a>
-              <div className="flex items-start gap-3 text-wetel-gray-400">
+              <div className="flex items-start gap-3 text-wetel-muted">
                 <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" />
                 <span>25 rue Tronchet<br />75008 Paris</span>
               </div>
@@ -88,7 +88,7 @@ export default function Footer() {
                 href="https://linkedin.com/company/wetelgroup"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-wetel-gray-800 rounded-lg flex items-center justify-center text-wetel-gray-400 hover:bg-wetel-orange hover:text-white transition-all duration-300"
+                className="w-10 h-10 bg-wetel-surface-soft rounded-lg flex items-center justify-center text-wetel-muted hover:bg-wetel-orange hover:text-white transition-all duration-300"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
@@ -96,7 +96,7 @@ export default function Footer() {
                 href="https://twitter.com/wetelgroup"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-wetel-gray-800 rounded-lg flex items-center justify-center text-wetel-gray-400 hover:bg-wetel-orange hover:text-white transition-all duration-300"
+                className="w-10 h-10 bg-wetel-surface-soft rounded-lg flex items-center justify-center text-wetel-muted hover:bg-wetel-orange hover:text-white transition-all duration-300"
               >
                 <Twitter className="w-5 h-5" />
               </a>
@@ -104,7 +104,7 @@ export default function Footer() {
                 href="https://facebook.com/wetelgroup"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-wetel-gray-800 rounded-lg flex items-center justify-center text-wetel-gray-400 hover:bg-wetel-orange hover:text-white transition-all duration-300"
+                className="w-10 h-10 bg-wetel-surface-soft rounded-lg flex items-center justify-center text-wetel-muted hover:bg-wetel-orange hover:text-white transition-all duration-300"
               >
                 <Facebook className="w-5 h-5" />
               </a>
@@ -113,13 +113,13 @@ export default function Footer() {
 
           {/* Solutions */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Solutions</h3>
+            <h3 className="text-wetel-ink font-semibold mb-4">Solutions</h3>
             <ul className="space-y-3">
               {footerLinks.solutions.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-wetel-gray-400 hover:text-wetel-orange transition-colors"
+                    className="text-wetel-muted hover:text-wetel-orange transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -130,13 +130,13 @@ export default function Footer() {
 
           {/* Offres */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Offres</h3>
+            <h3 className="text-wetel-ink font-semibold mb-4">Offres</h3>
             <ul className="space-y-3">
               {footerLinks.offres.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-wetel-gray-400 hover:text-wetel-orange transition-colors"
+                    className="text-wetel-muted hover:text-wetel-orange transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -147,13 +147,13 @@ export default function Footer() {
 
           {/* Ressources */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Ressources</h3>
+            <h3 className="text-wetel-ink font-semibold mb-4">Ressources</h3>
             <ul className="space-y-3">
               {footerLinks.ressources.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-wetel-gray-400 hover:text-wetel-orange transition-colors"
+                    className="text-wetel-muted hover:text-wetel-orange transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -164,13 +164,13 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Informations</h3>
+            <h3 className="text-wetel-ink font-semibold mb-4">Informations</h3>
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-wetel-gray-400 hover:text-wetel-orange transition-colors"
+                    className="text-wetel-muted hover:text-wetel-orange transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -182,9 +182,9 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-wetel-gray-800">
+      <div className="border-t border-wetel-line">
         <div className="container-wide py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-wetel-gray-500">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-wetel-muted">
             <div>
               © {new Date().getFullYear()} WETEL GROUP - SIREN 979 507 639 - Tous droits réservés
             </div>

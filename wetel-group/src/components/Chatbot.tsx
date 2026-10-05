@@ -15,7 +15,7 @@ const quickReplies = [
 ];
 
 const botResponses: Record<string, string> = {
-  offres: "Nous proposons 3 packs adaptés à vos besoins :\n\n📦 Starter Pro (59€/mois) - Idéal pour indépendants\n📦 Business Pro (99€/mois) - Notre pack le plus populaire\n📦 Entreprise Pro (169€/mois) - Pour les équipes\n\nVoulez-vous en savoir plus sur un pack en particulier ?",
+  offres: "Nous proposons 3 packs adaptés à vos besoins :\n\n📦 Starter Pro (à partir de 59€ HT/mois) - Idéal pour indépendants\n📦 Business Pro (à partir de 99€ HT/mois) - Notre pack le plus populaire\n📦 Entreprise Pro (à partir de 169€ HT/mois) - Pour les équipes\n\nMaintenance et location distinctes selon le devis. Exemple de maintenance : 30€ HT/mois pour assistance + 1 poste + 1 routeur, au mois 13 si la première année est offerte. Souhaitez-vous un devis ?",
   contact: "📞 Téléphone : 01 88 81 22 27\n📱 WhatsApp : 01 89 29 34 21\n✉️ Email : contact@wetelgroup.com\n\nNous sommes disponibles du lundi au vendredi, de 9h à 18h. N'hésitez pas à nous contacter !",
   rtc: "🔔 La fin du RTC (Réseau Téléphonique Commuté) arrive !\n\nLe réseau cuivre historique sera progressivement fermé. Il est temps de migrer vers la téléphonie IP et la fibre.\n\n✅ WETEL GROUP vous accompagne dans cette transition avec un interlocuteur unique et des solutions clés en main.\n\nVoulez-vous un devis gratuit ?",
   default: "Merci pour votre message ! Pour une réponse personnalisée, contactez-nous au 01 88 81 22 27 ou par email à contact@wetelgroup.com",
@@ -76,7 +76,7 @@ export default function Chatbot() {
         }`}
         style={{ transformOrigin: 'bottom right' }}
       >
-        <div className="bg-wetel-gray-900 border border-wetel-gray-700 rounded-2xl shadow-2xl overflow-hidden">
+        <div className="bg-wetel-surface border border-wetel-line rounded-2xl shadow-2xl overflow-hidden">
           {/* Chat Header */}
           <div className="bg-gradient-to-r from-wetel-orange to-wetel-orange-dark p-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -87,11 +87,12 @@ export default function Chatbot() {
                 <h3 className="text-white font-bold text-sm">WETEL Assistant</h3>
                 <div className="flex items-center gap-1.5">
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                  <span className="text-white/80 text-xs">En ligne</span>
+                  <span className="text-white/90 text-xs">En ligne</span>
                 </div>
               </div>
             </div>
             <button
+              aria-label="Fermer le chat"
               onClick={() => setIsOpen(false)}
               className="p-2 hover:bg-white/10 rounded-lg transition-colors"
             >
@@ -100,7 +101,7 @@ export default function Chatbot() {
           </div>
 
           {/* Messages Container */}
-          <div className="h-[400px] overflow-y-auto p-4 space-y-4 bg-wetel-gray-800/50">
+          <div className="h-[400px] overflow-y-auto p-4 space-y-4 bg-wetel-surface-soft/50">
             {messages.map((message, index) => (
               <div
                 key={index}
@@ -109,7 +110,7 @@ export default function Chatbot() {
                 <div
                   className={`max-w-[80%] p-3 rounded-2xl ${
                     message.isBot
-                      ? 'bg-wetel-gray-700 text-white'
+                      ? 'bg-wetel-line text-wetel-ink'
                       : 'bg-gradient-to-r from-wetel-orange to-wetel-orange-dark text-white'
                   }`}
                 >
@@ -125,7 +126,7 @@ export default function Chatbot() {
                   <button
                     key={reply.id}
                     onClick={() => handleQuickReply(reply.id)}
-                    className="flex items-center gap-2 px-4 py-2 bg-wetel-gray-700 hover:bg-wetel-orange/20 border border-wetel-gray-600 hover:border-wetel-orange text-white text-sm rounded-full transition-all duration-300"
+                    className="flex items-center gap-2 px-4 py-2 bg-wetel-line hover:bg-wetel-orange/20 border border-wetel-line-strong hover:border-wetel-orange text-wetel-ink text-sm rounded-full transition-all duration-300"
                   >
                     <reply.icon className="w-4 h-4" />
                     {reply.label}
@@ -136,16 +137,17 @@ export default function Chatbot() {
           </div>
 
           {/* Input Area */}
-          <form onSubmit={handleSendMessage} className="p-4 bg-wetel-gray-900 border-t border-wetel-gray-700">
+          <form onSubmit={handleSendMessage} className="p-4 bg-wetel-surface border-t border-wetel-line">
             <div className="flex items-center gap-2">
               <input
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder="Votre message..."
-                className="flex-1 px-4 py-3 bg-wetel-gray-800 text-white placeholder-wetel-gray-500 border border-wetel-gray-700 rounded-xl focus:outline-none focus:border-wetel-orange transition-colors text-sm"
+                className="flex-1 px-4 py-3 bg-wetel-surface-soft text-wetel-ink placeholder-wetel-muted border border-wetel-line rounded-xl focus:outline-none focus:border-wetel-orange transition-colors text-sm"
               />
               <button
+                aria-label="Envoyer le message"
                 type="submit"
                 className="p-3 bg-gradient-to-r from-wetel-orange to-wetel-orange-dark hover:shadow-glow-md rounded-xl transition-all duration-300"
               >

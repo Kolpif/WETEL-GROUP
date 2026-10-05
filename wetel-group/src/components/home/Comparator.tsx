@@ -22,14 +22,14 @@ const comparisonData = {
       { label: 'Technologie', value: 'IP / Fibre', positive: true },
       { label: 'Qualité audio', value: 'HD garantie', positive: true },
       { label: 'Fonctionnalités', value: 'Avancées incluses', positive: true },
-      { label: 'Support technique', value: 'Inclus 24/7', positive: true },
+      { label: 'Support technique', value: 'Selon offre souscrite', positive: true },
     ],
   },
 };
 
 export default function Comparator() {
   return (
-    <section className="section-padding bg-wetel-black relative overflow-hidden">
+    <section className="section-padding bg-wetel-canvas relative overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute top-1/2 left-0 w-96 h-96 bg-red-500/5 rounded-full blur-[150px]" />
         <div className="absolute top-1/2 right-0 w-96 h-96 bg-green-500/5 rounded-full blur-[150px]" />
@@ -41,11 +41,11 @@ export default function Comparator() {
             <TrendingUp className="w-4 h-4 text-wetel-orange" />
             <span className="text-sm font-medium text-wetel-orange">Comparateur</span>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-wetel-ink mb-4">
             Votre situation{' '}
             <span className="text-gradient-orange">avant vs après</span>
           </h2>
-          <p className="text-xl text-wetel-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-wetel-muted max-w-2xl mx-auto">
             Découvrez les économies et les gains de qualité que vous pouvez réaliser avec WETEL GROUP.
           </p>
         </div>
@@ -54,17 +54,17 @@ export default function Comparator() {
           <div className="card p-8 border-red-500/20 bg-gradient-to-br from-red-500/5 to-transparent">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 bg-red-500/10 rounded-xl flex items-center justify-center">
-                <TrendingDown className="w-5 h-5 text-red-400" />
+                <TrendingDown className="w-5 h-5 text-red-700" />
               </div>
-              <h3 className="text-xl font-bold text-white">{comparisonData.before.title}</h3>
+              <h3 className="text-xl font-bold text-wetel-ink">{comparisonData.before.title}</h3>
             </div>
             <div className="space-y-4">
               {comparisonData.before.items.map((item, index) => (
-                <div key={index} className="flex items-center justify-between py-3 border-b border-wetel-gray-800 last:border-0">
-                  <span className="text-wetel-gray-400">{item.label}</span>
+                <div key={index} className="flex items-center justify-between py-3 border-b border-wetel-line last:border-0">
+                  <span className="text-wetel-muted">{item.label}</span>
                   <div className="flex items-center gap-2">
-                    <span className="font-semibold text-red-400">{item.value}</span>
-                    <X className="w-4 h-4 text-red-400" />
+                    <span className="font-semibold text-red-700">{item.value}</span>
+                    <X className="w-4 h-4 text-red-700" />
                   </div>
                 </div>
               ))}
@@ -74,19 +74,19 @@ export default function Comparator() {
           <div className="flex flex-col items-center justify-center py-8">
             <div className="relative">
               <div className="w-24 h-24 bg-wetel-orange rounded-full flex items-center justify-center shadow-glow-md">
-                <ArrowRight className="w-10 h-10 text-white" />
+                <ArrowRight className="w-10 h-10 text-wetel-ink" />
               </div>
               <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 whitespace-nowrap">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-wetel-orange">-45%</div>
-                  <div className="text-sm text-wetel-gray-400">d&apos;économies</div>
+                  <div className="text-sm text-wetel-muted">d&apos;économies</div>
                 </div>
               </div>
             </div>
             <div className="mt-20 text-center">
-              <p className="text-wetel-gray-500 text-sm">Économisez en moyenne</p>
-              <p className="text-2xl font-bold text-white">
-                970€ <span className="text-wetel-gray-500 text-lg font-normal">/ an</span>
+              <p className="text-wetel-muted text-sm">Économisez en moyenne</p>
+              <p className="text-2xl font-bold text-wetel-ink">
+                970€ <span className="text-wetel-muted text-lg font-normal">/ an</span>
               </p>
             </div>
           </div>
@@ -97,17 +97,17 @@ export default function Comparator() {
             </div>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 bg-green-500/10 rounded-xl flex items-center justify-center">
-                <TrendingUp className="w-5 h-5 text-green-400" />
+                <TrendingUp className="w-5 h-5 text-green-700" />
               </div>
-              <h3 className="text-xl font-bold text-white">{comparisonData.after.title}</h3>
+              <h3 className="text-xl font-bold text-wetel-ink">{comparisonData.after.title}</h3>
             </div>
             <div className="space-y-4">
               {comparisonData.after.items.map((item, index) => (
-                <div key={index} className="flex items-center justify-between py-3 border-b border-wetel-gray-800 last:border-0">
-                  <span className="text-wetel-gray-400">{item.label}</span>
+                <div key={index} className="flex items-center justify-between py-3 border-b border-wetel-line last:border-0">
+                  <span className="text-wetel-muted">{item.label}</span>
                   <div className="flex items-center gap-2">
-                    <span className="font-semibold text-green-400">{item.value}</span>
-                    <Check className="w-4 h-4 text-green-400" />
+                    <span className="font-semibold text-green-700">{item.value}</span>
+                    <Check className="w-4 h-4 text-green-700" />
                   </div>
                 </div>
               ))}
