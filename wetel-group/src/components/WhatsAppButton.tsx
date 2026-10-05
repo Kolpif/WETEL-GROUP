@@ -9,22 +9,22 @@ export default function WhatsAppButton() {
   const message = encodeURIComponent('Bonjour, je souhaite avoir des informations sur vos offres télécom professionnelles.');
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-6 left-6 z-50">
       {/* Tooltip */}
       <div
         className={`absolute bottom-full right-0 mb-3 transition-all duration-300 ${
           isTooltipVisible ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'
         }`}
       >
-        <div className="bg-white text-wetel-black rounded-xl px-4 py-3 shadow-2xl max-w-[220px] relative">
+        <div className="bg-white text-wetel-ink rounded-xl px-4 py-3 shadow-2xl max-w-[220px] relative">
           <button
             onClick={() => setIsTooltipVisible(false)}
-            className="absolute -top-2 -right-2 w-6 h-6 bg-wetel-gray-800 rounded-full flex items-center justify-center text-white hover:bg-wetel-gray-700 transition-colors"
+            className="absolute -top-2 -right-2 w-6 h-6 bg-wetel-surface-soft rounded-full flex items-center justify-center text-wetel-ink hover:bg-wetel-line transition-colors"
           >
             <X className="w-3 h-3" />
           </button>
           <p className="text-sm font-medium mb-1">Besoin d&apos;aide ?</p>
-          <p className="text-xs text-wetel-gray-600">Contactez-nous directement sur WhatsApp</p>
+          <p className="text-xs text-wetel-muted">Contactez-nous directement sur WhatsApp</p>
           {/* Arrow */}
           <div className="absolute -bottom-2 right-6 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white" />
         </div>
@@ -41,7 +41,7 @@ export default function WhatsAppButton() {
         aria-label="Contactez-nous sur WhatsApp"
       >
         <MessageCircle className="w-8 h-8 text-white" />
-        
+
         {/* Pulse Effect */}
         <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20" />
       </a>

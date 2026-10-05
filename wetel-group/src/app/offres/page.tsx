@@ -1,3 +1,4 @@
+import MaintenancePricing from '@/components/MaintenancePricing';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Check, Star, ArrowRight, Phone, Smartphone, Monitor, Wifi, Cloud, HeadphonesIcon } from 'lucide-react';
@@ -51,19 +52,19 @@ const packs = [
 export default function OffresPage() {
   return (
     <>
-      <section className="pt-32 pb-16 bg-wetel-black relative overflow-hidden">
+      <section className="pt-32 pb-16 bg-wetel-canvas relative overflow-hidden">
         <div className="absolute inset-0 hero-gradient" />
         <div className="container-wide relative text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-wetel-orange/10 border border-wetel-orange/20 rounded-full mb-6">
             <Star className="w-4 h-4 text-wetel-orange" />
             <span className="text-sm font-medium text-wetel-orange">Tarifs transparents</span>
           </div>
-          <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6">Nos <span className="text-gradient-orange">offres & tarifs</span></h1>
-          <p className="text-xl text-wetel-gray-400">Des packs complets pour équiper votre entreprise en téléphonie professionnelle.</p>
+          <h1 className="text-5xl lg:text-6xl font-bold text-wetel-ink mb-6">Nos <span className="text-gradient-orange">offres & tarifs</span></h1>
+          <p className="text-xl text-wetel-muted">Des packs complets pour équiper votre entreprise en téléphonie professionnelle.</p>
         </div>
       </section>
 
-      <section className="section-padding bg-wetel-gray-900">
+      <section className="section-padding bg-wetel-surface">
         <div className="container-wide">
           <div className="grid lg:grid-cols-3 gap-8">
             {packs.map((pack) => (
@@ -74,15 +75,15 @@ export default function OffresPage() {
                   </div>
                 )}
                 <div className={pack.popular ? 'pt-4' : ''}>
-                  <h2 className="text-2xl font-bold text-white mb-2">{pack.name}</h2>
-                  <p className="text-wetel-gray-400 mb-6">{pack.description}</p>
+                  <h2 className="text-2xl font-bold text-wetel-ink mb-2">{pack.name}</h2>
+                  <p className="text-wetel-muted mb-6">{pack.description}</p>
                   <div className="mb-8">
                     <div className="flex items-baseline gap-2 mb-2">
-                      <span className="text-sm text-wetel-gray-500">À partir de</span>
-                      <span className="text-5xl font-bold text-white">{pack.price}€</span>
-                      <span className="text-wetel-gray-400">HT / mois</span>
+                      <span className="text-sm text-wetel-muted">À partir de</span>
+                      <span className="text-5xl font-bold text-wetel-ink">{pack.price}€</span>
+                      <span className="text-wetel-muted">HT / mois</span>
                     </div>
-                    <p className="text-sm text-wetel-gray-500">Installation : à partir de {pack.installation}€ HT</p>
+                    <p className="text-sm text-wetel-muted">Installation : à partir de {pack.installation}€ HT</p>
                   </div>
                   <div className="space-y-4 mb-8">
                     {pack.features.map((feature, index) => (
@@ -90,30 +91,32 @@ export default function OffresPage() {
                         <div className="w-8 h-8 bg-wetel-orange/10 rounded-lg flex items-center justify-center flex-shrink-0">
                           <feature.icon className="w-4 h-4 text-wetel-orange" />
                         </div>
-                        <span className="text-wetel-gray-300">{feature.text}</span>
+                        <span className="text-wetel-ink-soft">{feature.text}</span>
                       </div>
                     ))}
                   </div>
                   <div className="space-y-3">
                     <Link href="/contact" className={`w-full justify-center ${pack.popular ? 'btn-primary' : 'btn-secondary'}`}>Demander un devis<ArrowRight className="w-5 h-5" /></Link>
-                    <a href="tel:0189293421" className="btn-ghost w-full justify-center"><Phone className="w-4 h-4" />Être rappelé</a>
+                    <a href="tel:0188812227" className="btn-ghost w-full justify-center"><Phone className="w-4 h-4" />Être rappelé</a>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-          <div className="mt-12 p-6 bg-wetel-gray-800/50 rounded-2xl">
-            <p className="text-sm text-wetel-gray-500 text-center">
+          <div className="mt-12 p-6 bg-wetel-surface-soft/50 rounded-2xl">
+            <p className="text-sm text-wetel-muted text-center">
               Tous les tarifs sont indiqués à titre indicatif. Les offres sont soumises à étude technique, éligibilité réseau et validation du dossier. Internet fourni en fibre ou ADSL selon éligibilité. Les prix peuvent varier selon la zone géographique, le matériel nécessaire et la complexité de l&apos;installation.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="section-padding bg-wetel-black">
+      <MaintenancePricing />
+
+      <section className="section-padding bg-wetel-canvas">
         <div className="container-wide text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Besoin d&apos;une offre sur-mesure ?</h2>
-          <p className="text-xl text-wetel-gray-400 max-w-2xl mx-auto mb-8">Nos experts analysent vos besoins et vous proposent une solution adaptée.</p>
+          <h2 className="text-3xl lg:text-4xl font-bold text-wetel-ink mb-4">Besoin d&apos;une offre sur-mesure ?</h2>
+          <p className="text-xl text-wetel-muted max-w-2xl mx-auto mb-8">Nos experts analysent vos besoins et vous proposent une solution adaptée.</p>
           <Link href="/contact" className="btn-primary text-lg">Demander un devis personnalisé<ArrowRight className="w-5 h-5" /></Link>
         </div>
       </section>

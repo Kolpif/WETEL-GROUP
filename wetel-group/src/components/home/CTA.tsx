@@ -3,7 +3,7 @@ import { ArrowRight, Phone, Shield, Clock } from 'lucide-react';
 
 export default function CTA() {
   return (
-    <section className="section-padding bg-wetel-gray-900 relative overflow-hidden">
+    <section className="section-padding bg-wetel-surface relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-wetel-orange/10 via-transparent to-transparent" />
@@ -19,7 +19,7 @@ export default function CTA() {
           </div>
 
           {/* Heading */}
-          <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-tight">
+          <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-wetel-ink mb-6 leading-tight">
             Transformez votre{' '}
             <span className="text-gradient-orange">télécom</span>
             <br />
@@ -27,7 +27,7 @@ export default function CTA() {
           </h2>
 
           {/* Description */}
-          <p className="text-xl text-wetel-gray-400 mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-wetel-muted mb-10 max-w-2xl mx-auto">
             Rejoignez les centaines d&apos;entreprises qui ont déjà fait confiance à WETEL GROUP pour leur transition vers la téléphonie moderne.
           </p>
 
@@ -38,16 +38,16 @@ export default function CTA() {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
-              href="tel:0189293421"
+              href="tel:0188812227"
               className="btn-secondary text-lg !py-4 !px-8"
             >
               <Phone className="w-5 h-5" />
-              01 89 29 34 21
+              01 88 81 22 27
             </a>
           </div>
 
           {/* Trust Badges */}
-          <div className="flex flex-wrap items-center justify-center gap-8 text-sm text-wetel-gray-400">
+          <div className="flex flex-wrap items-center justify-center gap-8 text-sm text-wetel-muted">
             <div className="flex items-center gap-2">
               <Shield className="w-5 h-5 text-wetel-orange" />
               <span>Sans engagement</span>

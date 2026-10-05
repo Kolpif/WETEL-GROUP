@@ -6,7 +6,7 @@ import { HelpCircle, ChevronDown, MessageCircle } from 'lucide-react';
 const faqs = [
   {
     question: "Qu'est-ce que la fin du RTC et ça veut dire quoi pour mon entreprise ?",
-    answer: "Le RTC (Réseau Téléphonique Commuté) est l'ancien réseau téléphonique analogique qui disparaît progressivement. Orange a annoncé l'arrêt total du RTC d'ici 2030. Pour votre entreprise, cela signifie que vos lignes téléphoniques traditionnelles devront être migrées vers la téléphonie IP (sur internet). WETEL GROUP vous accompagne dans cette transition pour garantir une migration fluide sans interruption de service."
+    answer: "Le RTC (Réseau Téléphonique Commuté) est l'ancien réseau téléphonique analogique qui disparaît progressivement. Orange a annoncé l'arrêt total du RTC d'ici 2030. Pour votre entreprise, cela signifie que vos lignes téléphoniques traditionnelles devront être migrées vers la téléphonie IP (sur internet). WETEL GROUP vous accompagne dans cette transition pour planifier la migration et limiter les interruptions."
   },
   {
     question: "Combien de temps prend une migration vers la téléphonie IP ?",
@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     question: "Que se passe-t-il si j'ai un problème technique ?",
-    answer: "Notre support technique est disponible 24h/24 et 7j/7 pour les incidents critiques. Vous avez un interlocuteur unique qui connaît votre dossier. Nous garantissons un temps de réponse sous 2 heures pour les urgences et sous 24h pour les demandes standards. L'assistance est incluse dans tous nos packs."
+    answer: "Vous contactez notre assistance avec la référence de votre installation. Les horaires, prestations incluses et éventuels délais garantis sont ceux de votre offre. La maintenance, si commandée avec une première année offerte, devient payante au treizième mois au prix accepté dès la signature. Le devis précise les interventions, pièces et déplacements couverts."
   },
   {
     question: "La fibre est-elle obligatoire pour la téléphonie IP ?",
@@ -30,7 +30,7 @@ const faqs = [
   },
   {
     question: "Y a-t-il des frais cachés ?",
-    answer: "Non, nos tarifs sont transparents. Le prix mensuel inclut : les lignes, l'internet, le support technique et les mises à jour. Les seuls frais supplémentaires sont les frais d'installation (indiqués dans nos offres) et les éventuels appels hors forfait vers l'international. Nous vous fournissons un devis détaillé avant tout engagement."
+    answer: "Le devis distingue les abonnements, consommations hors forfait, loyers de matériel, installation et maintenance. Exemple de maintenance : 17 € HT d’assistance + 8 € HT pour un poste + 5 € HT pour un routeur, soit 30 € HT par mois au treizième mois si la première année est offerte. Quantités, durée et prix total sont acceptés avant signature."
   },
   {
     question: "Puis-je tester avant de m'engager ?",
@@ -50,19 +50,19 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="section-padding bg-wetel-black relative overflow-hidden">
+    <section id="faq" className="section-padding bg-wetel-canvas relative overflow-hidden">
       <div className="absolute inset-0 network-pattern opacity-20" />
-      
+
       <div className="container-wide relative">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-wetel-orange/10 border border-wetel-orange/20 rounded-full mb-6">
             <HelpCircle className="w-4 h-4 text-wetel-orange" />
             <span className="text-sm font-medium text-wetel-orange">FAQ</span>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-wetel-ink mb-4">
             Questions <span className="text-gradient-orange">fréquentes</span>
           </h2>
-          <p className="text-xl text-wetel-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-wetel-muted max-w-2xl mx-auto">
             Tout ce que vous devez savoir sur la transition télécom de votre entreprise.
           </p>
         </div>
@@ -80,7 +80,7 @@ export default function FAQ() {
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
                   className="w-full flex items-center justify-between p-6 text-left"
                 >
-                  <span className="font-semibold text-white pr-4">{faq.question}</span>
+                  <span className="font-semibold text-wetel-ink pr-4">{faq.question}</span>
                   <ChevronDown
                     className={`w-5 h-5 text-wetel-orange flex-shrink-0 transition-transform duration-300 ${
                       openIndex === index ? 'rotate-180' : ''
@@ -92,7 +92,7 @@ export default function FAQ() {
                     openIndex === index ? 'max-h-96' : 'max-h-0'
                   }`}
                 >
-                  <div className="px-6 pb-6 text-wetel-gray-400 leading-relaxed">
+                  <div className="px-6 pb-6 text-wetel-muted leading-relaxed">
                     {faq.answer}
                   </div>
                 </div>
@@ -102,7 +102,7 @@ export default function FAQ() {
 
           {/* CTA */}
           <div className="mt-12 text-center">
-            <p className="text-wetel-gray-400 mb-4">
+            <p className="text-wetel-muted mb-4">
               Vous avez d&apos;autres questions ?
             </p>
             <a

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ArrowRight, ArrowLeft, Check, Building2, Users, Phone, Mail, Loader2 } from 'lucide-react';
 
 type FormData = {
@@ -54,6 +54,11 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  useEffect(() => {
+    const address = new URLSearchParams(window.location.search).get('adresse');
+    if (address) setFormData(current => ({ ...current, message: `Demande d’étude d’éligibilité fibre pour : ${address}` }));
+  }, []);
+
   const totalSteps = 4;
 
   const updateFormData = (field: keyof FormData, value: string | string[]) => {
@@ -96,7 +101,7 @@ export default function ContactForm() {
 
     // Préparer le mailto avec toutes les infos
     const subject = encodeURIComponent(`Demande de devis - ${formData.companyName}`);
-    
+
     const body = encodeURIComponent(`
 NOUVELLE DEMANDE DE DEVIS
 
@@ -132,11 +137,11 @@ Envoyé depuis le formulaire de contact WETEL GROUP
     return (
       <div className="text-center py-12 animate-fade-in">
         <div className="w-20 h-20 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
-          <Check className="w-10 h-10 text-green-500" />
+          <Check className="w-10 h-10 text-green-700" />
         </div>
-        <h3 className="text-2xl font-bold text-white mb-4">Demande envoyée !</h3>
-        <p className="text-wetel-gray-400 mb-8 max-w-md mx-auto">
-          Merci pour votre demande. Un expert WETEL GROUP vous contactera sous 24h pour discuter de vos besoins.
+        <h3 className="text-2xl font-bold text-wetel-ink mb-4">Votre message est prêt</h3>
+        <p className="text-wetel-muted mb-8 max-w-md mx-auto">
+          Votre application de messagerie a été ouverte avec les informations saisies. Envoyez le courriel pour transmettre votre demande à WETEL GROUP. Si elle ne s’ouvre pas, contactez-nous à contact@wetelgroup.com ou au 01 88 81 22 27.
         </p>
         <button
           onClick={() => {
@@ -156,11 +161,11 @@ Envoyé depuis le formulaire de contact WETEL GROUP
     <div className="w-full">
       {/* Progress Bar */}
       <div className="mb-8">
-        <div className="flex items-center justify-between text-sm text-wetel-gray-500 mb-2">
+        <div className="flex items-center justify-between text-sm text-wetel-muted mb-2">
           <span>Étape {step} sur {totalSteps}</span>
           <span>{Math.round((step / totalSteps) * 100)}%</span>
         </div>
-        <div className="h-2 bg-wetel-gray-800 rounded-full overflow-hidden">
+        <div className="h-2 bg-wetel-surface-soft rounded-full overflow-hidden">
           <div
             className="h-full bg-wetel-orange rounded-full transition-all duration-500"
             style={{ width: `${(step / totalSteps) * 100}%` }}
@@ -171,8 +176,8 @@ Envoyé depuis le formulaire de contact WETEL GROUP
       {/* Step 1: Situation */}
       {step === 1 && (
         <div className="animate-fade-in">
-          <h3 className="text-2xl font-bold text-white mb-2">Dans quelle situation êtes-vous ?</h3>
-          <p className="text-wetel-gray-400 mb-8">Sélectionnez l&apos;option qui vous correspond le mieux.</p>
+          <h3 className="text-2xl font-bold text-wetel-ink mb-2">Dans quelle situation êtes-vous ?</h3>
+          <p className="text-wetel-muted mb-8">Sélectionnez l&apos;option qui vous correspond le mieux.</p>
 
           <div className="grid sm:grid-cols-2 gap-4">
             {situations.map((situation) => (
@@ -182,11 +187,11 @@ Envoyé depuis le formulaire de contact WETEL GROUP
                 className={`p-6 rounded-xl border-2 text-left transition-all duration-300 ${
                   formData.situation === situation.value
                     ? 'border-wetel-orange bg-wetel-orange/10'
-                    : 'border-wetel-gray-700 bg-wetel-gray-800/50 hover:border-wetel-gray-600'
+                    : 'border-wetel-line bg-wetel-surface-soft/50 hover:border-wetel-line-strong'
                 }`}
               >
                 <span className="text-3xl mb-3 block">{situation.icon}</span>
-                <span className="text-white font-semibold">{situation.label}</span>
+                <span className="text-wetel-ink font-semibold">{situation.label}</span>
               </button>
             ))}
           </div>
@@ -196,8 +201,8 @@ Envoyé depuis le formulaire de contact WETEL GROUP
       {/* Step 2: Company Size */}
       {step === 2 && (
         <div className="animate-fade-in">
-          <h3 className="text-2xl font-bold text-white mb-2">Quelle est la taille de votre entreprise ?</h3>
-          <p className="text-wetel-gray-400 mb-8">Cela nous aide à vous proposer l&apos;offre adaptée.</p>
+          <h3 className="text-2xl font-bold text-wetel-ink mb-2">Quelle est la taille de votre entreprise ?</h3>
+          <p className="text-wetel-muted mb-8">Cela nous aide à vous proposer l&apos;offre adaptée.</p>
 
           <div className="grid sm:grid-cols-2 gap-4">
             {companySizes.map((size) => (
@@ -207,14 +212,14 @@ Envoyé depuis le formulaire de contact WETEL GROUP
                 className={`p-6 rounded-xl border-2 text-left transition-all duration-300 ${
                   formData.companySize === size.value
                     ? 'border-wetel-orange bg-wetel-orange/10'
-                    : 'border-wetel-gray-700 bg-wetel-gray-800/50 hover:border-wetel-gray-600'
+                    : 'border-wetel-line bg-wetel-surface-soft/50 hover:border-wetel-line-strong'
                 }`}
               >
                 <div className="flex items-center gap-3 mb-2">
-                  <Users className={`w-5 h-5 ${formData.companySize === size.value ? 'text-wetel-orange' : 'text-wetel-gray-500'}`} />
-                  <span className="text-white font-semibold">{size.label}</span>
+                  <Users className={`w-5 h-5 ${formData.companySize === size.value ? 'text-wetel-orange' : 'text-wetel-muted'}`} />
+                  <span className="text-wetel-ink font-semibold">{size.label}</span>
                 </div>
-                <span className="text-sm text-wetel-gray-500">{size.description}</span>
+                <span className="text-sm text-wetel-muted">{size.description}</span>
               </button>
             ))}
           </div>
@@ -224,8 +229,8 @@ Envoyé depuis le formulaire de contact WETEL GROUP
       {/* Step 3: Needs */}
       {step === 3 && (
         <div className="animate-fade-in">
-          <h3 className="text-2xl font-bold text-white mb-2">Quels sont vos besoins ?</h3>
-          <p className="text-wetel-gray-400 mb-8">Sélectionnez tous les services qui vous intéressent.</p>
+          <h3 className="text-2xl font-bold text-wetel-ink mb-2">Quels sont vos besoins ?</h3>
+          <p className="text-wetel-muted mb-8">Sélectionnez tous les services qui vous intéressent.</p>
 
           <div className="grid sm:grid-cols-2 gap-4">
             {needsList.map((need) => (
@@ -235,19 +240,19 @@ Envoyé depuis le formulaire de contact WETEL GROUP
                 className={`p-4 rounded-xl border-2 text-left transition-all duration-300 flex items-center gap-3 ${
                   formData.needs.includes(need.value)
                     ? 'border-wetel-orange bg-wetel-orange/10'
-                    : 'border-wetel-gray-700 bg-wetel-gray-800/50 hover:border-wetel-gray-600'
+                    : 'border-wetel-line bg-wetel-surface-soft/50 hover:border-wetel-line-strong'
                 }`}
               >
                 <div
                   className={`w-6 h-6 rounded-lg flex items-center justify-center transition-colors ${
                     formData.needs.includes(need.value)
                       ? 'bg-wetel-orange'
-                      : 'bg-wetel-gray-700'
+                      : 'bg-wetel-line'
                   }`}
                 >
-                  {formData.needs.includes(need.value) && <Check className="w-4 h-4 text-white" />}
+                  {formData.needs.includes(need.value) && <Check className="w-4 h-4 text-wetel-ink" />}
                 </div>
-                <span className="text-white font-medium">{need.label}</span>
+                <span className="text-wetel-ink font-medium">{need.label}</span>
               </button>
             ))}
           </div>
@@ -257,8 +262,8 @@ Envoyé depuis le formulaire de contact WETEL GROUP
       {/* Step 4: Contact Info */}
       {step === 4 && (
         <div className="animate-fade-in">
-          <h3 className="text-2xl font-bold text-white mb-2">Vos coordonnées</h3>
-          <p className="text-wetel-gray-400 mb-8">Dernière étape ! Nous vous recontacterons rapidement.</p>
+          <h3 className="text-2xl font-bold text-wetel-ink mb-2">Vos coordonnées</h3>
+          <p className="text-wetel-muted mb-8">Dernière étape ! Nous vous recontacterons rapidement.</p>
 
           <div className="space-y-4">
             <div className="grid sm:grid-cols-2 gap-4">
@@ -331,11 +336,11 @@ Envoyé depuis le formulaire de contact WETEL GROUP
       )}
 
       {/* Navigation */}
-      <div className="flex items-center justify-between mt-8 pt-6 border-t border-wetel-gray-800">
+      <div className="flex items-center justify-between mt-8 pt-6 border-t border-wetel-line">
         {step > 1 ? (
           <button
             onClick={() => setStep(step - 1)}
-            className="flex items-center gap-2 text-wetel-gray-400 hover:text-white transition-colors"
+            className="flex items-center gap-2 text-wetel-muted hover:text-wetel-ink transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             Retour
@@ -366,7 +371,7 @@ Envoyé depuis le formulaire de contact WETEL GROUP
               </>
             ) : (
               <>
-                Envoyer ma demande
+                Préparer mon courriel
                 <ArrowRight className="w-5 h-5" />
               </>
             )}

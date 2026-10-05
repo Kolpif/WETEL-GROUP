@@ -45,21 +45,21 @@ export default function Header() {
   return (
     <>
       {/* Top Bar */}
-      <div className="hidden lg:block bg-wetel-gray-900 border-b border-wetel-gray-800">
+      <div className="hidden lg:block bg-wetel-surface border-b border-wetel-line">
         <div className="container-wide">
           <div className="flex items-center justify-between py-2 text-sm">
             <div className="flex items-center gap-6">
-              <a href="tel:0188812227" className="flex items-center gap-2 text-wetel-gray-400 hover:text-wetel-orange transition-colors">
+              <a href="tel:0188812227" className="flex items-center gap-2 text-wetel-muted hover:text-wetel-orange transition-colors">
                 <Phone className="w-4 h-4" />
                 <span>01 88 81 22 27</span>
               </a>
-              <a href="mailto:contact@wetelgroup.com" className="flex items-center gap-2 text-wetel-gray-400 hover:text-wetel-orange transition-colors">
+              <a href="mailto:contact@wetelgroup.com" className="flex items-center gap-2 text-wetel-muted hover:text-wetel-orange transition-colors">
                 <Mail className="w-4 h-4" />
                 <span>contact@wetelgroup.com</span>
               </a>
             </div>
             <div className="flex items-center gap-4">
-              <span className="text-wetel-gray-500">Experts télécom B2B depuis 2020</span>
+              <span className="text-wetel-muted">Télécoms pour les professionnels</span>
             </div>
           </div>
         </div>
@@ -69,8 +69,8 @@ export default function Header() {
       <header
         className={`sticky top-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'bg-wetel-black/95 backdrop-blur-xl border-b border-wetel-gray-800 shadow-lg'
-            : 'bg-transparent'
+            ? 'bg-wetel-canvas/95 backdrop-blur-xl border-b border-wetel-line shadow-lg'
+            : 'bg-white/95 border-b border-wetel-line'
         }`}
       >
         <div className="container-wide">
@@ -95,7 +95,7 @@ export default function Header() {
               <div>
                 <span className="text-xl font-bold tracking-tight">
                   <span className="text-wetel-orange">WETEL</span>
-                  <span className="text-white"> GROUP</span>
+                  <span className="text-wetel-ink"> GROUP</span>
                 </span>
               </div>
             </Link>
@@ -114,7 +114,7 @@ export default function Header() {
                     className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                       activeDropdown === item.name
                         ? 'text-wetel-orange bg-wetel-orange/10'
-                        : 'text-wetel-gray-300 hover:text-white hover:bg-wetel-gray-800/50'
+                        : 'text-wetel-ink-soft hover:text-wetel-ink hover:bg-wetel-surface-soft/50'
                     }`}
                   >
                     {item.name}
@@ -136,19 +136,19 @@ export default function Header() {
                           : 'opacity-0 invisible -translate-y-2'
                       }`}
                     >
-                      <div className="bg-wetel-gray-900 border border-wetel-gray-800 rounded-xl p-2 shadow-2xl min-w-[280px]">
+                      <div className="bg-wetel-surface border border-wetel-line rounded-xl p-2 shadow-2xl min-w-[280px]">
                         {item.children.map((child) => (
                           <Link
                             key={child.name}
                             href={child.href}
-                            className="flex items-start gap-3 p-3 rounded-lg transition-all duration-300 hover:bg-wetel-gray-800 group/item"
+                            className="flex items-start gap-3 p-3 rounded-lg transition-all duration-300 hover:bg-wetel-surface-soft group/item"
                           >
                             <div className="w-10 h-10 bg-wetel-orange/10 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover/item:bg-wetel-orange/20">
                               <div className="w-2 h-2 bg-wetel-orange rounded-full" />
                             </div>
                             <div>
                               <div className="flex items-center gap-2">
-                                <span className="text-sm font-semibold text-white group-hover/item:text-wetel-orange transition-colors">
+                                <span className="text-sm font-semibold text-wetel-ink group-hover/item:text-wetel-orange transition-colors">
                                   {child.name}
                                 </span>
                                 {child.badge && (
@@ -157,7 +157,7 @@ export default function Header() {
                                   </span>
                                 )}
                               </div>
-                              <span className="text-xs text-wetel-gray-500">
+                              <span className="text-xs text-wetel-muted">
                                 {child.description}
                               </span>
                             </div>
@@ -176,7 +176,7 @@ export default function Header() {
                 href="https://wa.me/33189293421"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-wetel-gray-300 hover:text-white transition-colors"
+                className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-wetel-ink-soft hover:text-wetel-ink transition-colors"
               >
                 <MessageCircle className="w-4 h-4" />
                 WhatsApp
@@ -188,8 +188,10 @@ export default function Header() {
 
             {/* Mobile Menu Button */}
             <button
+              aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+              aria-expanded={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-wetel-gray-400 hover:text-white transition-colors"
+              className="lg:hidden p-2 text-wetel-muted hover:text-wetel-ink transition-colors"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -205,7 +207,7 @@ export default function Header() {
       >
         {/* Backdrop */}
         <div
-          className={`absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity duration-500 ${
+          className={`absolute inset-0 bg-slate-900/30 backdrop-blur-sm transition-opacity duration-500 ${
             isMobileMenuOpen ? 'opacity-100' : 'opacity-0'
           }`}
           onClick={() => setIsMobileMenuOpen(false)}
@@ -213,20 +215,21 @@ export default function Header() {
 
         {/* Menu Panel */}
         <div
-          className={`absolute top-0 right-0 h-full w-full max-w-sm bg-wetel-gray-900 shadow-2xl transition-transform duration-500 ${
+          className={`absolute top-0 right-0 h-full w-full max-w-sm bg-wetel-surface shadow-2xl transition-transform duration-500 ${
             isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
           <div className="flex flex-col h-full">
             {/* Mobile Menu Header */}
-            <div className="flex items-center justify-between p-6 border-b border-wetel-gray-800">
+            <div className="flex items-center justify-between p-6 border-b border-wetel-line">
               <span className="text-lg font-bold">
                 <span className="text-wetel-orange">WETEL</span>
-                <span className="text-white"> GROUP</span>
+                <span className="text-wetel-ink"> GROUP</span>
               </span>
               <button
+                aria-label="Fermer le menu"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="p-2 text-wetel-gray-400 hover:text-white transition-colors"
+                className="p-2 text-wetel-muted hover:text-wetel-ink transition-colors"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -240,10 +243,10 @@ export default function Header() {
                     <Link
                       href={item.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="flex items-center justify-between px-4 py-3 text-white font-medium rounded-lg hover:bg-wetel-gray-800 transition-colors"
+                      className="flex items-center justify-between px-4 py-3 text-wetel-ink font-medium rounded-lg hover:bg-wetel-surface-soft transition-colors"
                     >
                       {item.name}
-                      {item.children && <ChevronDown className="w-4 h-4 text-wetel-gray-500" />}
+                      {item.children && <ChevronDown className="w-4 h-4 text-wetel-muted" />}
                     </Link>
                     {item.children && (
                       <div className="ml-4 mt-1 space-y-1">
@@ -252,7 +255,7 @@ export default function Header() {
                             key={child.name}
                             href={child.href}
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="flex items-center gap-2 px-4 py-2 text-sm text-wetel-gray-400 rounded-lg hover:text-wetel-orange hover:bg-wetel-gray-800/50 transition-colors"
+                            className="flex items-center gap-2 px-4 py-2 text-sm text-wetel-muted rounded-lg hover:text-wetel-orange hover:bg-wetel-surface-soft/50 transition-colors"
                           >
                             <div className="w-1.5 h-1.5 bg-wetel-orange/50 rounded-full" />
                             {child.name}
@@ -271,10 +274,10 @@ export default function Header() {
             </div>
 
             {/* Mobile Menu Footer */}
-            <div className="p-6 border-t border-wetel-gray-800 space-y-4">
+            <div className="p-6 border-t border-wetel-line space-y-4">
               <a
                 href="tel:0188812227"
-                className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-wetel-gray-800 text-white font-medium rounded-xl hover:bg-wetel-gray-700 transition-colors"
+                className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-wetel-surface-soft text-wetel-ink font-medium rounded-xl hover:bg-wetel-line transition-colors"
               >
                 <Phone className="w-4 h-4" />
                 01 88 81 22 27
